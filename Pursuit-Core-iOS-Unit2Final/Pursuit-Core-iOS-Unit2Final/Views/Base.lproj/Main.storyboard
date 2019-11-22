@@ -84,6 +84,9 @@
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="3ms-TA-kVd">
                                 <rect key="frame" x="83" y="254" width="248" height="31"/>
+                                <connections>
+                                    <action selector="redSlide:" destination="ut8-YS-jAf" eventType="valueChanged" id="4Xw-Xr-7t6"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Red:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8J-zE-0d8">
                                 <rect key="frame" x="20" y="206.5" width="374" height="27.5"/>
@@ -91,12 +94,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0c-EX-0IH">
-                                <rect key="frame" x="176" y="536" width="69" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Button"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Green:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LfQ-B8-F1Q">
                                 <rect key="frame" x="20" y="304" width="374" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
@@ -105,8 +102,11 @@
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="T1V-0X-ivF">
                                 <rect key="frame" x="83" y="352" width="248" height="31"/>
+                                <connections>
+                                    <action selector="greenSlide:" destination="ut8-YS-jAf" eventType="valueChanged" id="Nd8-D2-Nhn"/>
+                                </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Green:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJy-uR-ITZ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blue:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJy-uR-ITZ">
                                 <rect key="frame" x="20" y="402" width="374" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
@@ -114,26 +114,58 @@
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="8VQ-rd-0dR">
                                 <rect key="frame" x="83" y="450" width="248" height="31"/>
+                                <connections>
+                                    <action selector="blueSlide:" destination="ut8-YS-jAf" eventType="valueChanged" id="dKP-eq-kmT"/>
+                                </connections>
                             </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alpha:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1f7-ux-lpu">
+                                <rect key="frame" x="0.0" y="500" width="414" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" maximumValue="1" stepValue="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="RRD-ys-vX4">
+                                <rect key="frame" x="160" y="548" width="94" height="32"/>
+                                <connections>
+                                    <action selector="alphaLevel:" destination="ut8-YS-jAf" eventType="valueChanged" id="3cv-IU-UHq"/>
+                                </connections>
+                            </stepper>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SgS-8d-71w">
+                                <rect key="frame" x="178" y="610" width="58" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Reset"/>
+                                <connections>
+                                    <action selector="resetButton:" destination="ut8-YS-jAf" eventType="touchUpInside" id="VV2-4B-MSr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="fJy-uR-ITZ" firstAttribute="top" secondItem="T1V-0X-ivF" secondAttribute="bottom" constant="20" id="4G3-fa-pHQ"/>
                             <constraint firstItem="g3I-8w-mSo" firstAttribute="trailing" secondItem="fJy-uR-ITZ" secondAttribute="trailing" constant="20" id="7qU-oT-nAW"/>
+                            <constraint firstItem="RRD-ys-vX4" firstAttribute="leading" secondItem="g3I-8w-mSo" secondAttribute="leading" constant="160" id="8om-zi-I9N"/>
                             <constraint firstItem="LfQ-B8-F1Q" firstAttribute="leading" secondItem="g3I-8w-mSo" secondAttribute="leading" constant="20" id="AjW-ej-hgO"/>
                             <constraint firstItem="T1V-0X-ivF" firstAttribute="leading" secondItem="g3I-8w-mSo" secondAttribute="leading" constant="85" id="AqK-51-f3T"/>
+                            <constraint firstItem="g3I-8w-mSo" firstAttribute="trailing" secondItem="SgS-8d-71w" secondAttribute="trailing" constant="178" id="Dg2-ew-dBq"/>
                             <constraint firstItem="vns-bW-60f" firstAttribute="centerY" secondItem="hUh-N7-JLF" secondAttribute="centerY" multiplier="0.33" id="EN2-jK-Qz0"/>
                             <constraint firstItem="g3I-8w-mSo" firstAttribute="trailing" secondItem="w8J-zE-0d8" secondAttribute="trailing" constant="20" id="F6A-JP-jLa"/>
+                            <constraint firstItem="SgS-8d-71w" firstAttribute="top" secondItem="RRD-ys-vX4" secondAttribute="bottom" constant="30" id="Gk5-GU-4CC"/>
                             <constraint firstItem="g3I-8w-mSo" firstAttribute="trailing" secondItem="T1V-0X-ivF" secondAttribute="trailing" constant="85" id="JYU-8q-B7N"/>
                             <constraint firstItem="g3I-8w-mSo" firstAttribute="trailing" secondItem="8VQ-rd-0dR" secondAttribute="trailing" constant="85" id="NIa-3L-pKH"/>
+                            <constraint firstItem="g3I-8w-mSo" firstAttribute="trailing" secondItem="RRD-ys-vX4" secondAttribute="trailing" constant="160" id="Nns-jx-nUt"/>
+                            <constraint firstItem="RRD-ys-vX4" firstAttribute="top" secondItem="1f7-ux-lpu" secondAttribute="bottom" constant="20" id="P1K-kq-vcT"/>
                             <constraint firstItem="LfQ-B8-F1Q" firstAttribute="top" secondItem="3ms-TA-kVd" secondAttribute="bottom" constant="20" id="R3Y-sP-bH5"/>
                             <constraint firstItem="3ms-TA-kVd" firstAttribute="centerX" secondItem="w8J-zE-0d8" secondAttribute="centerX" id="T7k-U8-aXN"/>
                             <constraint firstItem="vns-bW-60f" firstAttribute="leading" secondItem="g3I-8w-mSo" secondAttribute="leading" constant="20" id="ak7-km-Mme"/>
+                            <constraint firstItem="1f7-ux-lpu" firstAttribute="top" secondItem="8VQ-rd-0dR" secondAttribute="bottom" constant="20" id="bup-yv-O5S"/>
+                            <constraint firstItem="g3I-8w-mSo" firstAttribute="trailing" secondItem="1f7-ux-lpu" secondAttribute="trailing" id="dGR-FI-GK9"/>
                             <constraint firstItem="T1V-0X-ivF" firstAttribute="top" secondItem="LfQ-B8-F1Q" secondAttribute="bottom" constant="20" id="dvC-5k-WcE"/>
                             <constraint firstItem="g3I-8w-mSo" firstAttribute="trailing" secondItem="vns-bW-60f" secondAttribute="trailing" constant="20" id="fck-F0-diL"/>
+                            <constraint firstItem="1f7-ux-lpu" firstAttribute="leading" secondItem="g3I-8w-mSo" secondAttribute="leading" id="fuj-Lw-XMY"/>
                             <constraint firstItem="3ms-TA-kVd" firstAttribute="top" secondItem="w8J-zE-0d8" secondAttribute="bottom" constant="20" id="ghM-5j-9Y8"/>
                             <constraint firstItem="g3I-8w-mSo" firstAttribute="trailing" secondItem="LfQ-B8-F1Q" secondAttribute="trailing" constant="20" id="h1N-Ie-ncP"/>
                             <constraint firstItem="3ms-TA-kVd" firstAttribute="leading" secondItem="g3I-8w-mSo" secondAttribute="leading" constant="85" id="isa-qg-i2w"/>
+                            <constraint firstItem="SgS-8d-71w" firstAttribute="leading" secondItem="g3I-8w-mSo" secondAttribute="leading" constant="178" id="kK8-AY-9r2"/>
                             <constraint firstItem="w8J-zE-0d8" firstAttribute="leading" secondItem="g3I-8w-mSo" secondAttribute="leading" constant="20" id="pwT-Su-9AR"/>
                             <constraint firstItem="fJy-uR-ITZ" firstAttribute="leading" secondItem="g3I-8w-mSo" secondAttribute="leading" constant="20" id="rys-Ts-eeO"/>
                             <constraint firstItem="3ms-TA-kVd" firstAttribute="centerY" secondItem="hUh-N7-JLF" secondAttribute="centerY" multiplier="0.6" id="vNA-Ak-LRu"/>
@@ -143,6 +175,13 @@
                         <viewLayoutGuide key="safeArea" id="g3I-8w-mSo"/>
                     </view>
                     <navigationItem key="navigationItem" id="pvn-XM-hvS"/>
+                    <connections>
+                        <outlet property="alphaStepper" destination="RRD-ys-vX4" id="piV-Vd-Eta"/>
+                        <outlet property="blueSlider" destination="8VQ-rd-0dR" id="Kza-Q7-sF2"/>
+                        <outlet property="crayonNameLabel" destination="vns-bW-60f" id="iF4-3l-WWy"/>
+                        <outlet property="greenSlider" destination="T1V-0X-ivF" id="JYR-Gf-gJ5"/>
+                        <outlet property="redSlider" destination="3ms-TA-kVd" id="4DV-Ug-raf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d2i-4N-6Mb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

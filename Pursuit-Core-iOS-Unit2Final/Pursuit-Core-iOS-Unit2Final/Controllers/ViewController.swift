@@ -29,7 +29,20 @@ class ViewController: UIViewController {
     func loadData() {
         crayons = Crayon.allTheCrayons
     }
-}
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            guard let detailedViewController = segue.destination as? DetailedViewController,
+                 let indexPath = tableView.indexPathForSelectedRow else{
+                fatalError("Failed to get indexPath and detailViewController!")
+            }
+            let crayon = crayons[indexPath.row]
+        detailedViewController.crayon = crayon
+        detailedViewController.redSlider?.value = Float(crayon.red)
+        detailedViewController.greenSlider?.value = Float(crayon.green)
+        detailedViewController.blueSlider?.value = Float(crayon.blue)
+        }
+    }
+    
 
 extension ViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
