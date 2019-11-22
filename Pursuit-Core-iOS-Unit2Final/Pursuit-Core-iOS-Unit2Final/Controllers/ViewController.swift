@@ -34,6 +34,7 @@ class ViewController: UIViewController {
         detailedViewController.redSlider?.value = Float(crayon.red)
         detailedViewController.greenSlider?.value = Float(crayon.green)
         detailedViewController.blueSlider?.value = Float(crayon.blue)
+        detailedViewController.alphaStepper?.value = Double(view.alpha)
         }
     }
 extension ViewController: UITableViewDataSource{

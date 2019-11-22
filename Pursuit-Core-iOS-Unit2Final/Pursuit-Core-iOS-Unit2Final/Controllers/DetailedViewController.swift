@@ -12,14 +12,12 @@ class DetailedViewController: UIViewController {
     
     var crayon: Crayon?
     
-    
     @IBOutlet weak var crayonNameLabel:UILabel!
     
     
     @IBOutlet weak var redSlider:UISlider!
     @IBOutlet weak var greenSlider:UISlider!
     @IBOutlet weak var blueSlider:UISlider!
-    
     
     @IBOutlet weak var alphaStepper:UIStepper!
     
@@ -28,24 +26,28 @@ class DetailedViewController: UIViewController {
         super.viewDidLoad()
         crayonNameLabel.text = crayon?.name
         
-        redSlider.value = Float(crayon!.red/255)
-        greenSlider.value = Float(crayon!.green/255)
-        blueSlider.value = Float(crayon!.blue/255)
+        redSlider.value = Float(crayon!.red)
+        greenSlider.value = Float(crayon!.green)
+        blueSlider.value = Float(crayon!.blue)
+        alphaStepper.value = Double(view.alpha)
         
         view.backgroundColor = UIColor(red: CGFloat(crayon!.red/255)
             , green: CGFloat(crayon!.green/255), blue: CGFloat(crayon!.blue/255), alpha: 1.0)
     }
     
     @IBAction func redSlide(_ sender: UISlider) {
-        view.backgroundColor = UIColor(red: CGFloat(sender.value/255), green: CGFloat(crayon!.green), blue: CGFloat(crayon!.blue), alpha: view.alpha)
+        redSlider.value = sender.value
+        view.backgroundColor = UIColor(red: CGFloat(redSlider.value/255), green: CGFloat(greenSlider.value/255), blue: CGFloat(blueSlider.value/255), alpha: view.alpha)
     }
     
     @IBAction func greenSlide(_ sender: UISlider) {
-        crayon?.green = Double(sender.value)
+        greenSlider.value = sender.value
+        view.backgroundColor = UIColor(red: CGFloat(redSlider.value/255), green: CGFloat(greenSlider.value/255), blue: CGFloat(blueSlider.value/255), alpha: view.alpha)
     }
     
     @IBAction func blueSlide(_ sender: UISlider) {
-        crayon?.blue = Double(sender.value)
+        blueSlider.value = sender.value
+        view.backgroundColor = UIColor(red: CGFloat(redSlider.value/255), green: CGFloat(greenSlider.value/255), blue: CGFloat(blueSlider.value/255), alpha: view.alpha)
     }
     
     
@@ -55,11 +57,16 @@ class DetailedViewController: UIViewController {
     
     
     @IBAction func resetButton(_ sender: UIButton) {
-        redSlider.value = Float((crayon?.red)!)
-        greenSlider.value = Float((crayon?.green)!)
-        blueSlider.value = Float((crayon?.blue)!)
+        print("here")
+        redSlider.value = Float(crayon!.red)
+        greenSlider.value = Float(crayon!.green)
+        blueSlider.value = Float(crayon!.blue)
+        
+        view.backgroundColor = UIColor(red: CGFloat(crayon!.red/255)
+        , green: CGFloat(crayon!.green/255), blue: CGFloat(crayon!.blue/255), alpha: 1.0)
+        
+        view.alpha = 1.0
     }
-    
     
     
 }
