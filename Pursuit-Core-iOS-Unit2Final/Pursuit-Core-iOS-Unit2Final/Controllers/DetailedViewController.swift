@@ -28,20 +28,16 @@ class DetailedViewController: UIViewController {
         super.viewDidLoad()
         crayonNameLabel.text = crayon?.name
         
-//        redSlider.value = Float((crayon?.red)!)
-//        greenSlider.value = Float((crayon?.green)!)
-//        blueSlider.value = Float((crayon?.blue)!)
+        redSlider.value = Float(crayon!.red/255)
+        greenSlider.value = Float(crayon!.green/255)
+        blueSlider.value = Float(crayon!.blue/255)
         
         view.backgroundColor = UIColor(red: CGFloat(crayon!.red/255)
-            , green: CGFloat(crayon!.green/255), blue: CGFloat(crayon!.blue/255
-        ), alpha: 1.0)
+            , green: CGFloat(crayon!.green/255), blue: CGFloat(crayon!.blue/255), alpha: 1.0)
     }
     
-    
     @IBAction func redSlide(_ sender: UISlider) {
-        
-        
-        crayon?.red = Double(sender.value)
+        view.backgroundColor = UIColor(red: CGFloat(sender.value/255), green: CGFloat(crayon!.green), blue: CGFloat(crayon!.blue), alpha: view.alpha)
     }
     
     @IBAction func greenSlide(_ sender: UISlider) {
@@ -59,7 +55,6 @@ class DetailedViewController: UIViewController {
     
     
     @IBAction func resetButton(_ sender: UIButton) {
-        
         redSlider.value = Float((crayon?.red)!)
         greenSlider.value = Float((crayon?.green)!)
         blueSlider.value = Float((crayon?.blue)!)
